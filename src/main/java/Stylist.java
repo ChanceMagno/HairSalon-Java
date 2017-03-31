@@ -2,11 +2,11 @@ import org.sql2o.*;
 import java.util.List;
 
 public class Stylist {
-  int id;
-  String first_name;
-  String last_name;
-  String phone_number;
-  String email;
+  private int id;
+  private String first_name;
+  private String last_name;
+  private String phone_number;
+  private String email;
 
   public Stylist(String first_name, String last_name, String phone_number, String email) {
     this.first_name = first_name;
@@ -48,8 +48,8 @@ public class Stylist {
       this.id = (int) con.createQuery(sql, true)
       .addParameter("first_name", this.first_name)
       .addParameter("last_name", this.last_name)
-      .addParameter("phone_number", phone_number)
-      .addParameter("email", email)
+      .addParameter("phone_number", this.phone_number)
+      .addParameter("email", this.email)
       .executeUpdate()
       .getKey();
 
@@ -62,7 +62,8 @@ public class Stylist {
       return false;
     } else {
       Stylist newStylist = (Stylist) otherStylist;
-      return this.getFirstName().equals(newStylist.getFirstName()) && this.getLastName().equals(newStylist.getLastName()) && this.getPhoneNumber().equals(newStylist.getPhoneNumber()) &&
+      return
+      this.getFirstName().equals(newStylist.getFirstName()) && this.getLastName().equals(newStylist.getLastName()) && this.getPhoneNumber().equals(newStylist.getPhoneNumber()) &&
       this.getEmail().equals(newStylist.getEmail());
     }
   }
@@ -76,7 +77,4 @@ public class Stylist {
     return stylist;
   }
 }
-
-
-
 }
