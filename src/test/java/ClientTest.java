@@ -46,6 +46,14 @@ public void client_instantiatesStylistId_0() {
   assertEquals(0, test1.getStylistId());
 }
 
+@Test
+public void find_returnsClientWithSameId_test2() {
+  Client client1 = new Client("firstname", "lastname", "phonenumber", "email");
+  client1.save();
+  Client client2 = new Client("Jim", "Strong", "3609107874", "JimStronggmailcom");
+  client2.save();
+  assertEquals(Client.find(client2.getId()), client2);
+}
 
 
 }

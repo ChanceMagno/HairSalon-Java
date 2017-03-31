@@ -37,6 +37,10 @@ public class Client {
     return stylist_id;
   }
 
+  public int getId() {
+    return id;
+  }
+
   public static List<Client> all() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients";
@@ -70,5 +74,17 @@ public class Client {
       this.stylist_id == newClient.getStylistId();
     }
   }
+
+  public static Client find(int id) {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "SELECT * FROM clients WHERE id = :id;";
+    Client client = con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Client.class);
+    return client;
+  }
+}
+
+
 
 }

@@ -37,6 +37,7 @@ public class StylistTest {
     assertTrue(test.equals(Stylist.all().get(0)));
     assertTrue(test1.equals(Stylist.all().get(1)));
   }
+
   @Test
   public void find_returnsStylistWithSameId_test2() {
     Stylist stylist1 = new Stylist("firstname", "lastname", "phonenumber", "email");
