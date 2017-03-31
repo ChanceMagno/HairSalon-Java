@@ -41,6 +41,13 @@ public class Client {
     return id;
   }
 
+  public List<Client> needStylist(){
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE stylist_id > 0;";
+      return con.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
+
   public static List<Client> all() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients";
