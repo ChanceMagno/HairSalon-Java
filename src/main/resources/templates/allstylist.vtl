@@ -1,0 +1,15 @@
+<!-- allstylist.vtl -->
+<h2>All Stylist</h2>
+<form action="/stylist/info" method="post">
+  <label class="col-4 col-form-label" for="stylist">Select Stylist To See Details:</label>
+  <select class="form-control" id="stylist" name="stylist" type="text">
+    #foreach ($stylist in $stylists)
+      <option class="form-control" value="$stylist.getId()">$stylist.getFirstName() $stylist.getLastName()</option>
+    #end
+  </select>
+  <br>
+  <button type="submit" class="btn btn-success">View Details</button>
+</form>
+
+
+<!-- allstylist.vtl -->

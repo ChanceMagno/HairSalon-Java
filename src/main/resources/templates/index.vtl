@@ -1,6 +1,8 @@
 <!--index.vtl-->
 <div class="row">
   <div class="col-md-2">
+    <h3><a href="/all/stylists">See all stylists</a></h3>
+    <h3><a href="/all/clients"></a>See all clients</h3>
   </div>
   <div class="col-md-4">
     <h3>Add New Stylist</h3>
@@ -67,17 +69,30 @@
     </form>
   </div>
   </form>
-  <div class="col-md-3">
-  </div>
-    <ul>
-      #foreach ($newClient in $newClients)
-      <li>$newClient.getFirstName()</li>
-        #end
-    </ul>
-    <ul>
-      #foreach ($stylist in $stylists)
-      <li>$stylist.getFirstName() $stylist.getLastName()</li>
-        #end
-    </ul>
 </div>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-6">
+    <h3 id="stylistAssignTitle">Assign a Stylist to a Client</h3>
+    <form class="form-group row" action="/clients/assign-stylist" method="post">
+      <label class="col-4 col-form-label" for="stylists">Assign Stylist:</label>
+      <select class="form-control" id="stylists" name="stylists" type="text">
+      #foreach ($stylist in $stylists)
+        <option class="form-control" value="$stylist.getId()">$stylist.getFirstName() $stylist.getLastName()</option>
+      #end
+      </select>
+      <br>
+      <label class="col-4 col-form-label" for="noStylist">To Available Client:</label>
+      <select class="form-control" id="noStylist" name="noStylist" type="text">
+      #foreach ($noStylist in $noStylists)
+        <option class="form-control" value="$noStylist.getId()">$noStylist.getFirstName() $noStylist.getLastName()</option>
+      #end
+      </select>
+      <button type="submit" class="btn btn-success">Assign</button>
+    </form>
+  </div>
+</div>
+
+
 <!--index.vtl-->

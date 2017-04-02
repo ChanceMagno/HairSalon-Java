@@ -1,0 +1,20 @@
+<!-- stylist.vtl -->
+
+<div class="row">
+  <div class="col-offset-2 col-md-5" >
+    <ul>
+      <li><strong>Name:</strong> $firstName $lastName</li>
+      <li><strong>Email:</strong> $email</li>
+      <li><strong>Phone Number:</strong> $phoneNumber</li>
+    </ul>
+  </div>
+  <div class="col-md-5">
+    <p><strong>$firstName Clients</strong></p>
+      <ul>
+        #foreach ($client in $stylistClients)
+        <li>$client</li>
+      </ul>
+
+  </div>
+</div>
+<!-- stylist.vtl -->
