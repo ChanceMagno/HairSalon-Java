@@ -7,7 +7,7 @@ public class Client {
   private String last_name;
   private String phone_number;
   private String email;
-  int stylist_id;
+  private int stylist_id;
 
   public Client(String first_name, String last_name, String phone_number, String email) {
     this.first_name = first_name;
@@ -37,6 +37,15 @@ public class Client {
     return stylist_id;
   }
 
+  public void assignStylist(int stylist_id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET stylist_id = :stylist_id WHERE id = :id";
+      con.createQuery(sql)
+      .addParameter("stylist_id", stylist_id)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
   public int getId() {
     return id;
   }
