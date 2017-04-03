@@ -2,6 +2,7 @@
 
 <div class="row">
   <div class="col-offset-2 col-md-5" >
+    <h3>Stylist:</h3>
     <ul>
       <li><strong>Name:</strong> $firstName $lastName</li>
       <li><strong>Email:</strong> $email</li>
@@ -9,12 +10,12 @@
     </ul>
   </div>
   <div class="col-md-5">
-    <p><strong>$firstName Clients</strong></p>
+    <h3>$firstName's Clients:</h3>
       <ul>
         #foreach ($client in $stylistClients)
-        <li>$client</li>
+          <li>$client.getFirstName() $client.getLastName()</li>
+        #end
       </ul>
-
   </div>
 </div>
 <!-- stylist.vtl -->

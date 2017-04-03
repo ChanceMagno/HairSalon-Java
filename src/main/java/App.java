@@ -50,8 +50,9 @@ public class App {
 
     post("/stylist/info", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      System.out.println(request.queryParams("stylist"));
       Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylist")));
-      
+      model.put("stylistClients", Client.assignedStylist(stylist.getId()));
       model.put("stylist", stylist);
       model.put("firstName", stylist.getFirstName());
       model.put("lastName", stylist.getLastName());

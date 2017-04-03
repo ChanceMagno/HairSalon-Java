@@ -46,6 +46,7 @@ public class Client {
       .executeUpdate();
     }
   }
+
   public int getId() {
     return id;
   }
@@ -53,6 +54,13 @@ public class Client {
   public static List<Client> needStylist(){
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients WHERE stylist_id = 0;";
+      return con.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
+
+  public static List<Client> assignedStylist(int id){
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE stylist_id =" + id + ";";
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
   }

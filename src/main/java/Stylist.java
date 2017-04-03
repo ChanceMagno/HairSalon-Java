@@ -35,15 +35,6 @@ public class Stylist {
     return id;
   }
 
-  // public getStylistAssignedClients() {
-  //   try(Connection con = DB.sql2o()) {
-  //     String sql = "SELECT * FROM clients WHERE stylist_id = " + this.getId();
-  //     Client client = con.createQuery(sql)
-  //     .executeAndFetch(Client.class);
-  //     return client.getFirstName() + " " + client.getLastName();
-  //   }
-  // }
-
   public static List<Stylist> all() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM stylists";
@@ -86,4 +77,5 @@ public class Stylist {
     return stylist;
   }
 }
+
 }
