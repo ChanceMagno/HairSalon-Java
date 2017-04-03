@@ -8,7 +8,12 @@
       <li><strong>Email:</strong> $email</li>
       <li><strong>Phone Number:</strong> $phoneNumber</li>
     </ul>
+    <form action="/delete/stylist" method="post">
+      <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+      <button type="submit" class="btn btn-success">Delete Stylist</button>
+    </form>
   </div>
+
   <div class="col-md-5">
     <h3>$firstName's Clients:</h3>
       <ul>
@@ -18,20 +23,25 @@
       </ul>
   </div>
 </div>
-
 <div class="row">
-  <div class="col-offset-3 col-md-6">
+  <div class="col-md-offset-3 col-md-6">
     <h3>Remove Client From Stylist</h3>
     <form class="form-group row" action="/remove/client" method="post">
-      <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
       <label class="col-4 col-form-label" for="clients">Remove Client:</label>
       <select class="form-control" id="clients" name="clients" type="text">
       #foreach ($client in $stylistClients)
         <option class="form-control" value="$client.getId()">$client.getFirstName() $client.getLastName()</option>
       #end
       </select>
-      <button type="submit" class="btn btn-success">Assign</button>
+      <br>
+      <button type="submit" class="btn btn-success">Remove Client From Stylist</button>
     </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <h5><a href="/">Return Home</a></h5>
+    <h5><a href="/all/stylists">Back to all Stylists</a></h5>
   </div>
 </div>
 <!-- stylist.vtl -->

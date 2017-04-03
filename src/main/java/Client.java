@@ -47,6 +47,15 @@ public class Client {
     }
   }
 
+  // public void removeClientsStylist(int stylist_id) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = :stylist_id";
+  //     con.createQuery(sql)
+  //     .addParameter("stylist_id", stylist_id)
+  //     .executeUpdate();
+  //   }
+  // }
+
   public void unassignStylist(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE clients SET stylist_id = 0 WHERE id =" + id + ";";

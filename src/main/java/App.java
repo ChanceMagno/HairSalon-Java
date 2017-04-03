@@ -73,10 +73,41 @@ public class App {
     post("/remove/client", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Client client = Client.find(Integer.parseInt(request.queryParams("clients")));
-      Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
       client.unassignStylist(client.getId());
       response.redirect("/");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("all/clients", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("clients", Client.all());
+      model.put("template", "templates/allclients.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/client/info", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Client client = Client.find(Integer.parseInt(request.queryParams("client")));
+      Stylist stylist = Stylist.find(client.getStylistId());
+      model.put("stylist", stylist);
+      model.put("client", client);
+      model.put("firstName", client.getFirstName());
+      model.put("lastName", client.getLastName());
+      model.put("email", client.getEmail());
+      model.put("phoneNumber", client.getPhoneNumber());
+      model.put("template", "templates/client.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/delete/stylist", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
+
+      // Client.removeClientsStylist(stylist.getId());
+      stylist.removeStylist();
+      response.redirect("/all/stylists");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
   }
 }
