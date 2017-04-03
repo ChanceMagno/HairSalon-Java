@@ -47,11 +47,10 @@ public class Client {
     }
   }
 
-  public void unassignStylist(int stylist_id) {
+  public void unassignStylist(int id) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE clients SET stylist_id = 0 WHERE id = :id";
+      String sql = "UPDATE clients SET stylist_id = 0 WHERE id =" + id + ";";
       con.createQuery(sql)
-      .addParameter("id", id)
       .executeUpdate();
     }
   }

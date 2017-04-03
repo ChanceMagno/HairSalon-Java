@@ -18,4 +18,20 @@
       </ul>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-offset-3 col-md-6">
+    <h3>Remove Client From Stylist</h3>
+    <form class="form-group row" action="/remove/client" method="post">
+      <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+      <label class="col-4 col-form-label" for="clients">Remove Client:</label>
+      <select class="form-control" id="clients" name="clients" type="text">
+      #foreach ($client in $stylistClients)
+        <option class="form-control" value="$client.getId()">$client.getFirstName() $client.getLastName()</option>
+      #end
+      </select>
+      <button type="submit" class="btn btn-success">Assign</button>
+    </form>
+  </div>
+</div>
 <!-- stylist.vtl -->
