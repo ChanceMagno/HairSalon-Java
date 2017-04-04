@@ -102,8 +102,7 @@ public class App {
     post("/delete/stylist", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
-
-      // Client.removeClientsStylist(stylist.getId());
+      stylist.removeClientsAssigned();
       stylist.removeStylist();
       response.redirect("/all/stylists");
       return new ModelAndView(model, layout);

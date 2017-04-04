@@ -11,6 +11,7 @@ _Application will help manage clients and stylist, assigning clients to stylist,
 ## Specifications
 
 | Behavior                   | Input Example     | Output Example    |
+|:---:|:---:|:---:|
 | Able to add Stylist and Details|New Stylist: "Jenny"| Stylist added "Jenny" Expertise "Hair Dye"|
 |Able to add Client and Details |New Client : "Jim" Style: "Hair Dye"|Client added "Jim" Style "Hair Dye" |
 |Able to assign Clients to Stylist|Client "Jim" assign to "jenny"|"Jenny" Clients = "Jim"|

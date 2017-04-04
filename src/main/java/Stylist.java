@@ -35,14 +35,14 @@ public class Stylist {
     return id;
   }
 
-  // public void removeClientsStylist() {
-  //   try (Connection con = DB.sql2o.open()) {
-  //     String sql = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = ;id;";
-  //     con.createQuery(sql)
-  //       .addParameter("id", id)
-  //       .executeUpdate();
-  //   }
-  // }
+  public void removeClientsAssigned() {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = :id;";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 
 
   public void removeStylist() {
