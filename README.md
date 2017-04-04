@@ -24,7 +24,7 @@ Clients assigned to removed Stylist need to be moved to unassigned clients|Delet
 ## Setup/Installation Requirements
 
 * _Clone the repository_
-*_In PSQL # CREATE DATABASE hair_salon; then run command $ psql media < media.sql;
+*_In PSQL # CREATE DATABASE hair_salon; then run command(in terminal or command line if pc) $ psql hair_salon < hair_salon.sql;
 * _Run the command 'gradle run'_
 * _Open browser and go to localhost:4567_
 

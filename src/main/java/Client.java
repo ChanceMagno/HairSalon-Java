@@ -47,14 +47,19 @@ public class Client {
     }
   }
 
-  // public void removeClientsStylist(int stylist_id) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = :stylist_id";
-  //     con.createQuery(sql)
-  //     .addParameter("stylist_id", stylist_id)
-  //     .executeUpdate();
-  //   }
-  // }
+  public void updateClient() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET first_name = :first_name, last_name = :last_name, phone_number = :phone_number, email = :email WHERE id = :id;";
+      con.createQuery(sql)
+      .addParameter("first_name", this.first_name)
+      .addParameter("last_name", this.last_name)
+      .addParameter("phone_number", this.phone_number)
+      .addParameter("email", this.email)
+      .addParameter("stylist_id", this.stylist_id)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
 
   public void unassignStylist(int id) {
     try(Connection con = DB.sql2o.open()) {
@@ -117,15 +122,13 @@ public class Client {
   }
 
   public static Client find(int id) {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "SELECT * FROM clients WHERE id = :id;";
-    Client client = con.createQuery(sql)
-      .addParameter("id", id)
-      .executeAndFetchFirst(Client.class);
-    return client;
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE id = :id;";
+      Client client = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Client.class);
+      return client;
+    }
   }
-}
-
-
 
 }
