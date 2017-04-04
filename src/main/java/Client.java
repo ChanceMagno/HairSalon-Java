@@ -47,14 +47,14 @@ public class Client {
     }
   }
 
-  public void updateClient() {
+  public void updateClient(String first_name, String last_name, String email, String phone_number) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE clients SET first_name = :first_name, last_name = :last_name, phone_number = :phone_number, email = :email WHERE id = :id;";
+      String sql = "UPDATE stylists SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number WHERE id = :id;";
       con.createQuery(sql)
-      .addParameter("first_name", this.first_name)
-      .addParameter("last_name", this.last_name)
-      .addParameter("phone_number", this.phone_number)
-      .addParameter("email", this.email)
+      .addParameter("first_name", first_name)
+      .addParameter("last_name", last_name)
+      .addParameter("email", email)
+      .addParameter("phone_number", phone_number)
       .addParameter("id", id)
       .executeUpdate();
     }

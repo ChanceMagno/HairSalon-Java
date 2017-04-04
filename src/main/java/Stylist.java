@@ -35,7 +35,7 @@ public class Stylist {
     return id;
   }
 
-  public void updateName(String first_name, String last_name, String email, String phone_number) {
+  public void updateStylist(String first_name, String last_name, String email, String phone_number) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE stylists SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number WHERE id = :id;";
       con.createQuery(sql)
