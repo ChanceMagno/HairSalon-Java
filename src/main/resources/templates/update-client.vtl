@@ -1,31 +1,31 @@
-<!-- update-stylist.vtl -->
+<!-- update-client.vtl -->
 <div class="row">
   <div class="col-md-offset-3 col-md-6">
-    <h3>Edit Stylist</h3>
-    <form action="/update-stylist/$stylist.getId()" method="post">
+    <h3>Edit Client</h3>
+    <form action="/updated-client/$client.getId()" method="post">
       <div class="col-md-6">
         <div class="form-group row">
           <label for="firstName" class="col-3 col-form-label">First Name</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="$stylist.getFirstName()" id="firstName" name="firstName">
+            <input class="form-control" type="text" value="$client.getFirstName()" id="firstName" name="firstName">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-search-input" class="col-3 col-form-label">Last Name</label>
           <div class="col-10">
-            <input name="lastName"  class="form-control" type="text" value="$stylist.getLastName()" id="lastName">
+            <input name="lastName"  class="form-control" type="text" value="$client.getLastName()" id="lastName">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-email-input" class="col-3 col-form-label">Email</label>
           <div class="col-10">
-            <input class="form-control" type="email" value="$stylist.getEmail()" id="email" name="email">
+            <input class="form-control" type="email" value="$client.getEmail()" id="email" name="email">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-tel-input" class="col-3 col-form-label">Phone Number</label>
           <div class="col-10">
-            <input class="form-control" type="tel" value="$stylist.getPhoneNumber()" id="PhoneNumber" name="phoneNumber">
+            <input class="form-control" type="tel" value="$client.getPhoneNumber()" id="PhoneNumber" name="phoneNumber">
           </div>
         </div>
         <button type="submit" class="btn btn-success">Submit Updated Info</button>
@@ -38,4 +38,4 @@
     <h3><a href="/"></a>Return Home</h3>
   </div>
 </div>
-<!-- update-stylist.vtl -->
+<!-- update-client.vtl -->

@@ -49,7 +49,7 @@ public class Client {
 
   public void updateClient(String first_name, String last_name, String email, String phone_number) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE stylists SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number WHERE id = :id;";
+      String sql = "UPDATE clients SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number WHERE id = :id;";
       con.createQuery(sql)
       .addParameter("first_name", first_name)
       .addParameter("last_name", last_name)

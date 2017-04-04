@@ -6,12 +6,18 @@
       <li><strong>Name:</strong> $firstName $lastName</li>
       <li><strong>Email:</strong> $email</li>
       <li><strong>Phone Number:</strong> $phoneNumber</li>
-        #if ($client.getStylistId() > 0)
-          <li>Stylist: $stylist.getFirstName() $stylist.getLastName()</li>
+        #if ($stylist)
+          <li><strong>Stylist:</strong> $stylist.getFirstName() $stylist.getLastName()</li>
         #else
-          <li>Stylist: <strong>no stylist assigned!</strong></li>
+          <li><strong>no stylist assigned!</strong></li>
         #end
     </ul>
+    <br>
+    <form action="/update-client" method="post">
+      <input id="clientId" name="clientId" type="hidden" value="$client.getId()">
+      <button type="submit" class="btn btn-success">Update Client</button>
+    </form>
+  </div>
   </div>
 </div>
 <br>
@@ -20,7 +26,6 @@
     <a href="/">return to Main Menu</a>
     <a href="/all/clients">Back to all Clients</a>
   </div>
-
 </div>
 
 <!-- client.vtl -->
