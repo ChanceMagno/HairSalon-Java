@@ -11,25 +11,25 @@
         <div class="form-group row">
           <label for="firstName" class="col-3 col-form-label">First Name</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="John" id="firstName" name="firstName">
+            <input required class="form-control" type="text" placeholder="John" id="firstName" name="firstName">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-search-input" class="col-3 col-form-label">Last Name</label>
           <div class="col-10">
-            <input name="lastName"  class="form-control" type="text" value="Connor" id="lastName">
+            <input required name="lastName"  placeholder="Connor" class="form-control" type="text" id="lastName">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-email-input" class="col-3 col-form-label">Email</label>
           <div class="col-10">
-            <input class="form-control" type="email" value="new@email.com" id="email" name="email">
+            <input required class="form-control" type="email" placeholder="new@email.com" id="email" name="email">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-tel-input" class="col-3 col-form-label">Phone Number</label>
           <div class="col-10">
-            <input class="form-control" type="tel" value="1-(555)-555-5555" id="PhoneNumber" name="phoneNumber">
+            <input class="form-control" type="tel" placeholder="1-(555)-555-5555" id="PhoneNumber" name="phoneNumber">
           </div>
         </div>
         <button type="submit" class="btn btn-success">Add Stylist</button>
@@ -43,25 +43,25 @@
         <div class="form-group row">
           <label for="example-text-input" class="col-3 col-form-label">First Name</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="John" id="firstName" name="firstName">
+            <input required class="form-control" type="text" placeholder="John" id="firstName" name="firstName">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-search-input" class="col-3 col-form-label">Last Name</label>
           <div class="col-10">
-            <input class="form-control" type="text" value="Connor" id="lastName" name="lastName">
+            <input required class="form-control" type="text" placeholder="Connor" id="lastName" name="lastName">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-email-input" class="col-3 col-form-label">Email</label>
           <div class="col-10">
-            <input class="form-control" type="email" value="new@email.com" id="email" name="email">
+            <input required class="form-control" type="email" placeholder="new@email.com" id="email" name="email">
           </div>
         </div>
         <div class="form-group row">
           <label for="example-tel-input" class="col-3 col-form-label">Phone Number</label>
           <div class="col-10">
-            <input name="phoneNumber"  class="form-control" type="tel" value="1-(555)-555-5555" id="PhoneNumber">
+            <input required name="phoneNumber"  class="form-control" type="tel" placeholder="1-(555)-555-5555" id="PhoneNumber">
           </div>
         </div>
         <button type="submit" class="btn btn-success">Add Client</button>
@@ -79,14 +79,14 @@
       <label class="col-4 col-form-label" for="stylists">Assign Stylist:</label>
       <select class="form-control" id="stylists" name="stylists" type="text">
       #foreach ($stylist in $stylists)
-        <option class="form-control" value="$stylist.getId()">$stylist.getFirstName() $stylist.getLastName()</option>
+        <option required class="form-control" value="$stylist.getId()">$stylist.getFirstName() $stylist.getLastName()</option>
       #end
       </select>
       <br>
       <label class="col-4 col-form-label" for="noStylist">To Available Client:</label>
       <select class="form-control" id="noStylist" name="noStylist" type="text">
       #foreach ($noStylist in $noStylists)
-        <option class="form-control" value="$noStylist.getId()">$noStylist.getFirstName() $noStylist.getLastName()</option>
+        <option required class="form-control" value="$noStylist.getId()">$noStylist.getFirstName() $noStylist.getLastName()</option>
       #end
       </select>
       <br>
