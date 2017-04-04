@@ -55,7 +55,6 @@ public class Client {
       .addParameter("last_name", this.last_name)
       .addParameter("phone_number", this.phone_number)
       .addParameter("email", this.email)
-      .addParameter("stylist_id", this.stylist_id)
       .addParameter("id", id)
       .executeUpdate();
     }
